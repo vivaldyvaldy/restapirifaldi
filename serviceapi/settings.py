@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_yasg',
     'authentication',
-    'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
     'jdstest'
 ]
 
@@ -60,7 +58,6 @@ SWAGGER_SETTINGS = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -178,8 +175,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_DIRS = [ 
+    BASE_DIR ,"static", 
+]
+
+# MEDIA_URL  = '/media/'
+# MEDIA_ROOT = BASE_DIR/'media'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
