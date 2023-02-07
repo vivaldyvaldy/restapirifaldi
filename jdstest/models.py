@@ -11,6 +11,9 @@ class JmlLulusanPesertaPelatihan(models.Model):
     satuan = models.CharField(max_length=30, blank=True, null=True)
     tahun = models.CharField(max_length=30, blank=True, null=True)
 
+    class Meta:
+        db_table = 'jml_lulusan_peserta_pelatihan'
+
 
 class JmlPegawaiPppk(models.Model):
     id = models.BigIntegerField(primary_key=True)
@@ -21,6 +24,9 @@ class JmlPegawaiPppk(models.Model):
     jumlah_pppk = models.BigIntegerField(blank=True, null=True)
     satuan = models.CharField(max_length=30, blank=True, null=True)
     tahun = models.CharField(max_length=30, blank=True, null=True)
+
+    class Meta:
+        db_table = 'jml_pegawai_pppk'
 
 
 class JmlPengeluaranKerbau(models.Model):
@@ -33,3 +39,6 @@ class JmlPengeluaranKerbau(models.Model):
     jumlah_pengeluaran = models.BigIntegerField(blank=True, null=True)
     satuan = models.CharField(max_length=30, blank=True, null=True)
     tahun = models.CharField(max_length=30, blank=True, null=True)
+
+    class Meta:
+        db_table = 'jml_pengeluaran_kerbau'
