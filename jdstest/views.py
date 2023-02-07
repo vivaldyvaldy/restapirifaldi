@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics, status, views, permissions
 from datetime import date
 from rest_framework.views import APIView
-from rest_framework import filters, response, status
+from rest_framework import response, status
 from .models import JmlPengeluaranKerbau
 from django.db import connection
 from requests.auth import HTTPBasicAuth
