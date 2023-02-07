@@ -65,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'serviceapi.urls'
@@ -173,17 +174,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
-# STATIC_ROOT = BASE_DIR / "staticfiles"
-# STATICFILES_STORAGE="whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_DIRS = [ 
-    BASE_DIR ,"static", 
-]
-
-# MEDIA_URL  = '/media/'
-# MEDIA_ROOT = BASE_DIR/'media'
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__)) 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static') 
+STATIC_URL = '/static/' 
+ 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
