@@ -22,6 +22,6 @@ COPY . $DockerHOME
 RUN pip install -r requirements.txt  
 # port where the Django app runs  
 EXPOSE 8000  
-RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic
 # start server  
 CMD python manage.py runserver
